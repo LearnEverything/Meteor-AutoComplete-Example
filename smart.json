@@ -1,0 +1,11 @@
+{
+  "packages": {
+    "iron-router": {},
+    "autocomplete": {
+      "git": "https://github.com/Neobii/meteor-autocomplete.git",
+      "branch": "noMatch"
+    },
+    "bootstrap-3": {},
+    "handlebar-helpers": {}
+  }
+}

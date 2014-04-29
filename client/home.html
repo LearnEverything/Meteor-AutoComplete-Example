@@ -1,0 +1,44 @@
+<template name="home">
+<h1>Invite Friends for a Movie Night</h1>
+{{#if $.Session.get "contact.name"}}
+{{> inputNewUser}}
+{{else}}
+{{> inputAutocomplete settings=settings placeholder="Contact Name" class="form-control" name="contactName" data-supplier-id="new"}}
+{{/if}}
+<hr>
+<table class="table">
+	<tr> 
+		<td>Name</td>
+		<td>Favorite Movie</td>
+	</tr>
+	{{#each contacts}}
+	{{#if isGoingToMovie}}
+	<tr>
+		<td>{{name}}</td>
+		<td>{{favMovie}}</td>
+		<td><button type="remove" class="btn btn-default" data-action="removeContact" data-contact-id="{{_id}}">Remove</button></td>
+	</tr>
+	{{/if}}
+	{{/each}}
+</table>
+</template>
+
+<template name="userPill">
+<p>{{name}}</p>
+</template>
+
+<template name="inputNewUser">
+<form role="form">
+  <div class="form-group">
+    <label for="inputName">Name</label>
+    <input type="name" class="form-control" id="inputName" value="{{$.Session.get 'contact.name'}}">
+  </div>
+  <div class="form-group">
+    <label for="inputFavMovie">Favorite Movie</label>
+    <input type="favMovie" class="form-control" id="inputFavMovie" placeholder="Movie Title">
+  </div>
+  <button type="submit" class="btn btn-default" data-action="submitContact">Submit</button>
+</form>
+
+
+</template>
